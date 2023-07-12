@@ -18,8 +18,8 @@ export const createOrderItem =
   };
 
 export const getPaymentDue = (order: OrderItem[]) =>
-  order?.reduce((acc, orderItem) =>
+  order.reduce((acc, orderItem) =>
     acc + orderItem.cost * orderItem.quantity, 0);
 
 export const getOrderItemsWithQuantity = (order: OrderItem[]) =>
-  order?.filter(orderItem => orderItem.quantity > 0);
+  order.filter(orderItem => orderItem.quantity > 0);
