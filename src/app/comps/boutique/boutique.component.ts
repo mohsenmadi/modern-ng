@@ -6,8 +6,8 @@ import {
   OnInit,
   Output
 } from '@angular/core';
-import { Product } from "../product.model";
-import { createOrderItem, OrderItem } from "../order-item.model";
+import { Product } from "../../models/product.model";
+import { createOrderItem, OrderItem } from "../../models/order-item.model";
 
 @Component({
   selector: 'app-boutique',
