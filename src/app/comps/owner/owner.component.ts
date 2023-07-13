@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { OperationsService } from "../operations.service";
-import { OrderItem } from "../order-item.model";
-import { Product } from "../product.model";
+import { OperationsService } from "../../store/operations.service";
+import { OrderItem } from "../../models/order-item.model";
+import { Product } from "../../models/product.model";
 
 // TODO-7:
 //   1. If you see Owner's HTML template, you realize it's the parent since
