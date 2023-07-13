@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Product } from "../product.model";
-import { OperationsService } from "../operations.service";
+import { Product } from "../../models/product.model";
+import { OperationsService } from "../../store/operations.service";
 
 @Component({
   selector: 'app-boutique',

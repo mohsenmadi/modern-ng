@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { OperationsService } from "../operations.service";
+import { OperationsService } from "../../store/operations.service";
 
 @Component({
   selector: 'app-owner',
