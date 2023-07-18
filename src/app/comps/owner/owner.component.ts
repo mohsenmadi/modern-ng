@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import { OperationsService } from "../../store/operations.service";
+import { ShopService } from "../../store/shop.service";
 import { OrderItem } from "../../models/order-item.model";
 import { Product } from "../../models/product.model";
 import {Observable, Subscription, take} from 'rxjs';
@@ -7,7 +7,7 @@ import {Observable, Subscription, take} from 'rxjs';
 // TODO-7:
 //   1. If you see Owner's HTML template, you realize it's the parent since
 //      it summons Boutique and Buyer into action, hence, add
-//      `OperationsService` to the `providers` list in @Component
+//      `ShopService` to the `providers` list in @Component
 @Component({
   selector: 'app-owner',
   templateUrl: './owner.component.html',
@@ -31,7 +31,7 @@ export class OwnerComponent implements OnInit, OnDestroy {
   earnings = 0;
   subscription = new Subscription();
 
-  constructor(private store: OperationsService) {
+  constructor(private store: ShopService) {
   }
 
   // TODO-9:

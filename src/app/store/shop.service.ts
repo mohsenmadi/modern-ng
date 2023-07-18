@@ -12,10 +12,10 @@ import {BehaviorSubject, take} from 'rxjs';
 // TODO-1:
 //   1. [done] `npm i @ngrx/component-store`
 //   2. * Think: the state of what properties do we need to maintain?
-//      Then, create an interface `OperationsState` that houses them.
+//      Then, create an interface `ShopState` that houses them.
 //      When done, cross-check with Accelerator#1.2 (scroll to end of page)
 //   3. * What would the default (initial) value be for each property?
-//      Create an object `defaultState` of type `OperationsState`
+//      Create an object `defaultState` of type `ShopState`
 //      that sets them right
 //   4. Although an Injectable, we don't need the store at the `root`
 //      level; its' needed only in the `providers` list at the component
@@ -28,7 +28,7 @@ import {BehaviorSubject, take} from 'rxjs';
 //   1. * To convert this service into a component-store, it has to "extend"
 //      `ComponentStore` with the generic type you created above;
 //       that's how the store becomes aware-of and manages it's properties state
-export class OperationsService {
+export class ShopService {
 
   earnings$ = new BehaviorSubject(0);
 
@@ -136,16 +136,16 @@ export class OperationsService {
 
 // ====================== Accelerators =================================
 
-// 1.2 `OperationsState` should manage
+// 1.2 `ShopState` should manage
 //     `products: Product[]`, `order: OrderItem[]`,
 //     `earnings: number` and `paymentDue:number`
 
 
-// 1.3 const defaultState: OperationsState = { products: [], order: [],
+// 1.3 const defaultState: ShopState = { products: [], order: [],
 //     earnings: 0, paymentDue: 0}
 
 
-// 2.1 export class OperationsService extends ComponentStore<OperationsState> {
+// 2.1 export class ShopService extends ComponentStore<ShopState> {
 
 
 // 4.1   readonly loadProducts = (products: Product[]) => this.setState((state) => ({
