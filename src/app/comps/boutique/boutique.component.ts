@@ -14,7 +14,7 @@ import { createOrderItem, OrderItem } from "../../models/order-item.model";
   templateUrl: './boutique.component.html',
   styleUrls: ['./boutique.component.scss']
 })
-export class BoutiqueComponent implements OnInit, OnChanges, OnInit {
+export class BoutiqueComponent implements OnInit, OnChanges {
 
   // TODO-10:
   //   With the right selectors, updaters/patchers, we can do without

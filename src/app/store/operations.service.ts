@@ -1,11 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Product, updateSoldProperty } from '../models/product.model';
 import { OrderItem } from "../models/order-item.model";
+import {BehaviorSubject, take} from 'rxjs';
+
+// TODO-0:
+// - Follow these TODOs in order.
+// - A '[done]' before an instruction means step is done for you
+// - A '*' before an instruction means step provided in the "Accelerator" section
+//   found at the end of each file, accordingly
 
 // TODO-1:
 //   1. [done] `npm i @ngrx/component-store`
 //   2. * Think: the state of what properties do we need to maintain?
-//      Then, create an interface `OperationsState` that houses them
+//      Then, create an interface `OperationsState` that houses them.
 //      When done, cross-check with Accelerator#1.2 (scroll to end of page)
 //   3. * What would the default (initial) value be for each property?
 //      Create an object `defaultState` of type `OperationsState`
@@ -22,6 +29,8 @@ import { OrderItem } from "../models/order-item.model";
 //      `ComponentStore` with the generic type you created above;
 //       that's how the store becomes aware-of and manages it's properties state
 export class OperationsService {
+
+  earnings$ = new BehaviorSubject(0);
 
   products: Product[] = [
     {id: 10, sold: 0, name: 'Beach ball', cost: 14},
@@ -86,18 +95,22 @@ export class OperationsService {
   }
 
   // TODO-19:
-  //   1. [done] create a `makePayment()` method that when
-  //      the Buyer clicks the buy (shop-cart) button:
+  //   1. Modify the `makePayment()` method below so that that when
+  //      the Buyer clicks the buy (shopping-cart) button, the following happens
+  //      (NOTE: the parameter `newPayment` is no longer needed):
   //   2. * use RxJS' zip() on `earnings$` and `paymentDue$`
   //   3. * `map` `zip`s callback array-value into the sum of both observables' properties
   //   we can now:
-  //   4. patchState of `earnings` to (you know what)
-  //   5. patchState of `paymentDue` to (well, payment is received, reset?)
+  //   4. * patchState of `earnings` to (you know what)
+  //   5. patchState of `paymentDue` to (well, payment is received and processed, then reset?)
   //   6. patchState of `order` to (we're starting fresh, so...)
   //   7. call the `updateSales()` method (see T0DO-20 for that)
+  //   8. That updatePayment() method provided at the top? No longer needed, delete it
 
-  readonly makePayment = () => {
-    // fill me in...
+  readonly makePayment = (newPayment: number) => {
+    this.earnings$.pipe(take(1)).subscribe(earnings => {
+      this.earnings$.next(earnings + newPayment);
+    })
   }
 
   // TODO-20:
@@ -163,9 +176,11 @@ export class OperationsService {
 // 19.2     zip(this.earnings$, this.paymentDue$)
 //           .pipe(
 //             take(1),
-//             map(pair => pair[0] + pair[1])
+// 19.3        map(pair => pair[0] + pair[1])
 //            )
-//           .subscribe(earnings => {...
+//           .subscribe(earnings => {
+// 19.4        this.patchState({earnings});
+//             ...
 
 
 // 20:   readonly updateSales = () => {
