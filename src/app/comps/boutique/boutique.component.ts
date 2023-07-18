@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Product } from "../../models/product.model";
-import { OperationsService } from "../../store/operations.service";
+import { ShopService } from "../../store/shop.service";
 
 @Component({
   selector: 'app-boutique',
@@ -11,7 +11,7 @@ export class BoutiqueComponent {
   dataSource = this.store.products$;
   displayedColumns: string[] = ['sold', 'name', 'cost', 'quantity'];
 
-  constructor(private store: OperationsService) {
+  constructor(private store: ShopService) {
   }
 
   addOrderItem(quantity: number, product: Product) {

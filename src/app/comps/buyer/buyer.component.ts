@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { OperationsService } from "../../store/operations.service";
+import { ShopService } from "../../store/shop.service";
 
 @Component({
   selector: 'app-buyer',
@@ -12,7 +12,7 @@ export class BuyerComponent {
   dataSource = this.store.order$;
   displayedColumns: string[] = ['name', 'cost', 'quantity', 'due'];
 
-  constructor(private store: OperationsService) {
+  constructor(private store: ShopService) {
   }
 
   makePayment() {

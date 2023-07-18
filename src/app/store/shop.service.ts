@@ -4,14 +4,14 @@ import { createOrderItem, getOrderItemsWithQuantity, getPaymentDue, OrderItem } 
 import { ComponentStore } from "@ngrx/component-store";
 import { Injectable } from "@angular/core";
 
-export interface OperationsState {
+export interface ShopState {
   products: Product[];
   order: OrderItem[];
   earnings: number;
   paymentDue: number;
 }
 
-const defaultState: OperationsState = {
+const defaultState: ShopState = {
   products: [],
   order: [],
   earnings: 0,
@@ -19,7 +19,7 @@ const defaultState: OperationsState = {
 };
 
 @Injectable()
-export class OperationsService extends ComponentStore<OperationsState> {
+export class ShopService extends ComponentStore<ShopState> {
 
   products: Product[] = [
     {id: 10, sold: 0, name: 'Beach ball', cost: 14},

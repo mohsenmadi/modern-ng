@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
-import { OperationsService } from "../../store/operations.service";
+import { ShopService } from "../../store/shop.service";
 
 @Component({
   selector: 'app-owner',
   templateUrl: './owner.component.html',
   styleUrls: ['./owner.component.scss'],
-  providers: [OperationsService]
+  providers: [ShopService]
 })
 export class OwnerComponent {
   earnings$ = this.store.earnings$;
 
-  constructor(private store: OperationsService) {
+  constructor(private store: ShopService) {
   }
 }
