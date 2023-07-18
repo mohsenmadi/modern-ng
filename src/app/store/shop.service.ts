@@ -6,7 +6,7 @@ import {BehaviorSubject, take} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class OperationsService {
+export class ShopService {
 
   earnings$ = new BehaviorSubject(0);
 

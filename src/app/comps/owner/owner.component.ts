@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {OperationsService} from '../../store/operations.service';
+import {ShopService} from '../../store/shop.service';
 import {OrderItem} from '../../models/order-item.model';
 import {Product} from '../../models/product.model';
 import {Subscription} from 'rxjs';
@@ -15,7 +15,7 @@ export class OwnerComponent implements OnInit, OnDestroy {
   earnings = 0;
   subscription = new Subscription();
 
-  constructor(private store: OperationsService) {
+  constructor(private store: ShopService) {
   }
 
   ngOnInit(): void {
