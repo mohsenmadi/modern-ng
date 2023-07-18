@@ -11,7 +11,7 @@ import { Product } from "../../models/product.model";
 export class OwnerComponent implements OnInit {
   products!: Product[];
   order!: OrderItem[];
-  earnings: number = 0;
+  earnings$ = this.store.earnings$;
 
   constructor(private store: OperationsService) {
   }
@@ -25,7 +25,7 @@ export class OwnerComponent implements OnInit {
   }
 
   receivePayment(newPayment: number) {
-    this.earnings += newPayment;
+    this.store.updatePayment(newPayment);
     this.store.updateSales(this.order);
     const products = this.products;
     this.products = [];
