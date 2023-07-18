@@ -19,11 +19,11 @@ export class OperationsService {
     {id: 60, sold: 0, name: 'Swim suit', cost: 15}
   ];
 
-  updatePayment(newPayment: number) {
+  makePayment = (newPayment: number) => {
     this.earnings$.pipe(take(1)).subscribe(earnings => {
       this.earnings$.next(earnings + newPayment);
     });
-  }
+  };
 
   updateSales(order: OrderItem[]) {
     updateSoldProperty(this.products, order);
