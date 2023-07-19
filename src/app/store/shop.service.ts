@@ -66,7 +66,8 @@ export class ShopService {
   //   1. * `products` is state-managed, so if we create a selector for it,
   //      it's instantly available for any subscriber (here or in components).
   //      Create the selector for it. Should be the same name + $.
-  //   2. While we're at it, create a selector for `earnings$` too.
+  //   2. While we're at it, change the `earnings$` object declaration such that it's
+  //      providing its value from a selector
   //   3. You need two more... go for them right now
 
   // TODO-18:
@@ -164,7 +165,6 @@ export class ShopService {
 
 // 6.1   readonly products$ = this.select(({products}) => products);    or equally:
 //       readonly products$ = this.select(state => state.products);
-
 
 // 18.4  const order = getOrderItemsWithQuantity([...this.orderMap.values()]);
 
