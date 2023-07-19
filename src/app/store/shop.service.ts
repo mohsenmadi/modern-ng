@@ -67,7 +67,7 @@ export class ShopService {
   //      it's instantly available for any subscriber (here or in components).
   //      Create the selector for it. Should be the same name + $.
   //   2. While we're at it, change the `earnings$` object declaration such that it's
-  //      providing its value from a selector
+  //      providing its value from a selector as with products$ in the previous point
   //   3. You need two more... go for them right now
 
   // TODO-18:
