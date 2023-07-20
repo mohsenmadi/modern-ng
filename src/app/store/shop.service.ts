@@ -115,7 +115,8 @@ export class ShopService {
   }
 
   // TODO-20:
-  //   * Re-write the `updateSales() method that does this:
+  //   * Re-write the `updateSales() method (which now no longer needs parameters)
+  //     that does this:
   //   1. subscribe to `products$` to fetch them
   //   2. use `updateSoldProperty()` to update products table.
   //      Here, the `quantity` of every sold product in the order is

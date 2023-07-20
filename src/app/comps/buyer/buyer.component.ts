@@ -28,6 +28,7 @@ export class BuyerComponent implements OnChanges {
   ngOnChanges() {
     this.order = getOrderItemsWithQuantity(this.order);
     this.paymentDue = getPaymentDue(this.order);
+
     this.dataSource = this.order;
   }
 
