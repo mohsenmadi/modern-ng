@@ -28,8 +28,8 @@ export class OwnerComponent implements OnInit, OnDestroy {
     this.order = order;
   }
 
-  receivePayment(newPayment: number) {
-    this.store.makePayment(newPayment);
+  receivePayment(paymentDue: number) {
+    this.store.makePayment(paymentDue);
     this.store.updateSales(this.order);
     const products = this.products;
     this.products = [];

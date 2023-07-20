@@ -19,9 +19,9 @@ export class ShopService {
     {id: 60, sold: 0, name: 'Swim suit', cost: 15}
   ];
 
-  makePayment = (newPayment: number) => {
+  makePayment = (paymentDue = 0) => {
     this.earnings$.pipe(take(1)).subscribe(earnings => {
-      this.earnings$.next(earnings + newPayment);
+      this.earnings$.next(earnings + paymentDue);
     });
   };
 
