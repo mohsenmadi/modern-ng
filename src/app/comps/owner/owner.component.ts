@@ -4,7 +4,7 @@ import { OrderItem } from "../../models/order-item.model";
 import { Product } from "../../models/product.model";
 import {Observable, Subscription, take} from 'rxjs';
 
-// TODO-7:
+// TODO-07:
 //   1. If you see Owner's HTML template, you realize it's the parent since
 //      it summons Boutique and Buyer into action, hence, add
 //      `ShopService` to the `providers` list in @Component
@@ -14,7 +14,7 @@ import {Observable, Subscription, take} from 'rxjs';
   styleUrls: ['./owner.component.scss']
 })
 export class OwnerComponent implements OnInit, OnDestroy {
-  // TODO-8:
+  // TODO-08:
   //   Make Owner happy! He's only concerned with "earnings", so:
   //   1. ditch `products`; boutique component can get it's products from store
   //   2. ditch `order`; buyer component knows best how to get its order items
@@ -34,7 +34,7 @@ export class OwnerComponent implements OnInit, OnDestroy {
   constructor(private store: ShopService) {
   }
 
-  // TODO-9:
+  // TODO-09:
   //   1. Making Owner happy right? You know what to do about all the methods below
   ngOnInit(): void {
     this.products = this.store.products;
@@ -47,8 +47,8 @@ export class OwnerComponent implements OnInit, OnDestroy {
   }
 
   // take a quick look, but then ditch it
-  receivePayment(newPayment: number) {
-    this.store.makePayment(newPayment);
+  receivePayment(paymentDue: number) {
+    this.store.makePayment(paymentDue);
     this.store.updateSales(this.order);
     const products = this.products;
     // to rebuild table, the following purge of DOM and rebuild is needed

@@ -3,13 +3,13 @@ import { Product, updateSoldProperty } from '../models/product.model';
 import { OrderItem } from "../models/order-item.model";
 import {BehaviorSubject, take} from 'rxjs';
 
-// TODO-0:
+// TODO-00:
 // - Follow these TODOs in order.
 // - A '[done]' before an instruction means step is done for you
 // - A '*' before an instruction means step provided in the "Accelerator" section
 //   found at the end of each file, accordingly
 
-// TODO-1:
+// TODO-01:
 //   1. [done] `npm i @ngrx/component-store`
 //   2. * Think: the state of what properties do we need to maintain?
 //      Then, create an interface `ShopState` that houses them.
@@ -24,7 +24,7 @@ import {BehaviorSubject, take} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-// TODO-2:
+// TODO-02:
 //   1. * To convert this service into a component-store, it has to "extend"
 //      `ComponentStore` with the generic type you created above;
 //       that's how the store becomes aware-of and manages it's properties state
@@ -44,17 +44,17 @@ export class ShopService {
   // leave this as is, you'll need it later
   private orderMap = new Map<number, OrderItem>();
 
-  // TODO-3:
+  // TODO-03:
   //   1. Extending a parent? then `super(...)` initialize it
   //      with your default object
 
-  // TODO-5: (*** do TODO-4 first ***)
+  // TODO-05: (*** do TODO-04 first ***)
   //   1. Let's `loadProducts()` in the constructor so that `products` is
   //      loaded and ready in the components that need it
   constructor() {
   }
 
-  // TODO-4:
+  // TODO-04:
   //   1. * Our most important property is `products`. Only after its set
   //      can we view the Boutique, keep selecting `orderItem`s with some
   //      `quantity`, to make an overall `order`, calculate its `paymentDue`
@@ -62,12 +62,12 @@ export class ShopService {
   //      So, let's create a `setState` method that immutably returns the state,
   //      but overrides the default setting with our list of fresh `products`
 
-  // TODO-6:
+  // TODO-06:
   //   1. * `products` is state-managed, so if we create a selector for it,
   //      it's instantly available for any subscriber (here or in components).
   //      Create the selector for it. Should be the same name + $.
   //   2. While we're at it, change the `earnings$` object declaration such that it's
-  //      providing its value from a selector as with products$ in the previous point
+  //      providing its value from a selector like products$ in the previous point
   //   3. You need two more... go for them right now
 
   // TODO-18:
@@ -98,7 +98,7 @@ export class ShopService {
   // TODO-19:
   //   1. Modify the `makePayment()` method below so that that when
   //      the Buyer clicks the buy (shopping-cart) button, the following happens
-  //      (NOTE: the parameter `newPayment` is no longer needed):
+  //      (NOTE: the parameter `paymentDue` is no longer needed):
   //   2. * use RxJS' zip() on `earnings$` and `paymentDue$`
   //   3. * `map` `zip`s callback array-value into the sum of both observables' properties
   //   we can now:
@@ -108,9 +108,9 @@ export class ShopService {
   //   7. call the `updateSales()` method (see T0DO-20 for that)
   //   8. That updatePayment() method provided at the top? No longer needed, delete it
 
-  readonly makePayment = (newPayment: number) => {
+  readonly makePayment = (paymentDue = 0) => {
     this.earnings$.pipe(take(1)).subscribe(earnings => {
-      this.earnings$.next(earnings + newPayment);
+      this.earnings$.next(earnings + paymentDue);
     })
   }
 
