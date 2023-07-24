@@ -4,9 +4,9 @@ import { OrderItem } from "../models/order-item.model";
 import {BehaviorSubject, take} from 'rxjs';
 
 // TODO-00:
-// - Follow these TODOs in order.
+// - Follow these TODOs (00 -> 20) in order.
 // - A '[done]' before an instruction means step is done for you
-// - A '*' before an instruction means step provided in the "Accelerator" section
+// - A '*' before an instruction means step is provided in the "Accelerator" section
 //   found at the end of each file, accordingly
 
 // TODO-01:
@@ -69,6 +69,9 @@ export class ShopService {
   //   2. While we're at it, change the `earnings$` object declaration such that it's
   //      providing its value from a selector like products$ in the previous point
   //   3. You need two more... go for them right now
+  //      --
+  //      Oh, earnings$ complaining? Override the BehaviorSubject declaration with this
+  //      selector one.
 
   // TODO-18:
   //   At this time, you have have an error-free running app since all selectors
@@ -138,9 +141,11 @@ export class ShopService {
 
 // ====================== Accelerators =================================
 
-// 1.2 `ShopState` should manage
-//     `products: Product[]`, `order: OrderItem[]`,
-//     `earnings: number` and `paymentDue:number`
+// 1.2 `ShopState` interfaces should host
+//   products: Product[];
+//   order: OrderItem[],
+//   earnings: number;
+//   paymentDue: number;
 
 
 // 1.3 const defaultState: ShopState = { products: [], order: [],

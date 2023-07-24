@@ -43,6 +43,8 @@ export class BuyerComponent implements OnChanges {
   }
 }
 
+// ====================== Accelerators =================================
+
 // 15.5 `paymentDue` becomes `paymentDue$`, so in the template,
 //      Lines 28-30 should become:
 // <ng-container *ngIf="paymentDue$ | async as paymentDue">
