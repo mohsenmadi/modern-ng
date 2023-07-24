@@ -69,9 +69,9 @@ export class ShopService {
   //   2. While we're at it, change the `earnings$` object declaration such that it's
   //      providing its value from a selector like products$ in the previous point
   //   3. You need two more... go for them right now
-  //      --
-  //      Oh, earnings$ complaining? Override the BehaviorSubject declaration with this
-  //      selector one.
+  //   4. Oh, earnings$ complaining? Override the BehaviorSubject declaration with this
+  //      selector one, and, make the body of makePayment() below empty for now, you'll
+  //      fill it later
 
   // TODO-18:
   //   At this time, you have have an error-free running app since all selectors

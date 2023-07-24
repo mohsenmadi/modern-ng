@@ -28,7 +28,7 @@ export class OwnerComponent implements OnInit, OnDestroy {
 
   products!: Product[];
   order!: OrderItem[];
-  earnings = 0;
+  earnings$ = 0; // trailed with a $ for later...
   subscription = new Subscription();
 
   constructor(private store: ShopService) {
@@ -39,7 +39,7 @@ export class OwnerComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.products = this.store.products;
     this.subscription = this.store.earnings$
-      .subscribe(earnings => this.earnings = earnings)
+      .subscribe(earnings => this.earnings$ = earnings)
   }
 
   collectOrder(order: OrderItem[]) {
