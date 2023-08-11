@@ -9,4 +9,4 @@ bootstrapApplication(AppComponent, {
     provideAnimations(),
     provideRouter(routes, withEnabledBlockingInitialNavigation())
   ]
-}).catch(err => console.error(err))
+}).catch(err => console.error(err));
