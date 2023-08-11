@@ -2,6 +2,9 @@
   <div class="child">
     <span class="emoji">😌✈️💵</span>
     <span class="money">{{ earnings$ | async | currency }}</span>
+    <span *ngIf="newItems === 'yes'" class="new-items">
+      ⚡👋🏽🥳 new items added 🥳👋⚡
+    </span>
   </div>
 </div>
 

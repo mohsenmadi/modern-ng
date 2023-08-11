@@ -16,6 +16,7 @@ import {AboutComponent} from './comps/about/about.component';
 import {RouterModule} from '@angular/router';
 import {routes} from './app-routing.module';
 import {MatListModule} from '@angular/material/list';
+import { DetailComponent } from './comps/detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {MatListModule} from '@angular/material/list';
     BoutiqueComponent,
     BuyerComponent,
     OwnerComponent,
-    AboutComponent
+    AboutComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,

@@ -1,14 +1,15 @@
-import { Product, updateSoldProperty } from '../models/product.model';
-import { map, take, zip } from "rxjs";
-import { createOrderItem, getOrderItemsWithQuantity, getPaymentDue, OrderItem } from "../models/order-item.model";
-import { ComponentStore } from "@ngrx/component-store";
-import { Injectable } from "@angular/core";
+import {Product, updateSoldProperty} from '../models/product.model';
+import {map, take, zip} from 'rxjs';
+import {createOrderItem, getOrderItemsWithQuantity, getPaymentDue, OrderItem} from '../models/order-item.model';
+import {ComponentStore} from '@ngrx/component-store';
+import {Injectable} from '@angular/core';
 
 export interface ShopState {
   products: Product[];
   order: OrderItem[];
   earnings: number;
   paymentDue: number;
+  productSelected?: Product;
 }
 
 const defaultState: ShopState = {
@@ -46,11 +47,18 @@ export class ShopService extends ComponentStore<ShopState> {
   readonly paymentDue$ = this.select((state => state.paymentDue));
   readonly earnings$ = this.select(({earnings}) => earnings);
   readonly order$ = this.select(({order}) => order);
+  readonly productSelected$ = this.select(({productSelected}) => productSelected);
 
   readonly productsUpdate = this.updater((state, products: Product[]) => ({
     ...state,
     products
   }));
+
+  readonly productSelectedUpdate = (id: number) => {
+    const productSelected = this.products.find(product => product.id === +id);
+    console.log(productSelected)
+    this.patchState({productSelected});
+  };
 
   readonly addOrderItem = (quantity: number, product: Product) => {
     const newOrderItem = createOrderItem(quantity, product);
