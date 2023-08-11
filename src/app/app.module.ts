@@ -12,7 +12,7 @@ import {MatInputModule} from '@angular/material/input';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import {AboutComponent} from './comps/about/about.component';
+import {HomeComponent} from './comps/home/home.component';
 import {RouterModule} from '@angular/router';
 import {routes} from './app-routing.module';
 import {MatListModule} from '@angular/material/list';
@@ -24,7 +24,7 @@ import { DetailComponent } from './comps/detail/detail.component';
     BoutiqueComponent,
     BuyerComponent,
     OwnerComponent,
-    AboutComponent,
+    HomeComponent,
     DetailComponent
   ],
   imports: [
