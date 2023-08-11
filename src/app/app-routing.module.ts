@@ -1,11 +1,11 @@
 import {Routes} from '@angular/router';
-import {AboutComponent} from './comps/about/about.component';
+import {HomeComponent} from './comps/home/home.component';
 import {OwnerComponent} from './comps/owner/owner.component';
 import {DetailComponent} from './comps/detail/detail.component';
 
 export const routes: Routes = [
   {
-    path: '', component: AboutComponent
+    path: '', component: HomeComponent
   },
   {
     path: 'shop/:newItems',
