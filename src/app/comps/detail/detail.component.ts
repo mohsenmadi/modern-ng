@@ -16,7 +16,6 @@ export class DetailComponent implements OnInit {
 
   ngOnInit() {
     this.activeRoute.paramMap.subscribe(params => {
-        console.log('=detail=>', this.getRouteParam('id'));
         this.store.productSelectedUpdate(this.getRouteParam('id'));
       }
     );
