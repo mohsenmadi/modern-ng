@@ -56,7 +56,6 @@ export class ShopService extends ComponentStore<ShopState> {
 
   readonly productSelectedUpdate = (id: number) => {
     const productSelected = this.products.find(product => product.id === +id);
-    console.log(productSelected)
     this.patchState({productSelected});
   };
 

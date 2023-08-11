@@ -1,11 +1,17 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ShopService} from '../../store/shop.service';
+import {AsyncPipe, JsonPipe} from '@angular/common';
 
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.scss']
+  styleUrls: ['./detail.component.scss'],
+  imports: [
+    AsyncPipe,
+    JsonPipe
+  ],
+  standalone: true
 })
 export class DetailComponent implements OnInit {
 
@@ -16,7 +22,6 @@ export class DetailComponent implements OnInit {
 
   ngOnInit() {
     this.activeRoute.paramMap.subscribe(params => {
-        console.log('=detail=>', this.getRouteParam('id'));
         this.store.productSelectedUpdate(this.getRouteParam('id'));
       }
     );

@@ -20,12 +20,12 @@ import { DetailComponent } from './comps/detail/detail.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    BoutiqueComponent,
-    BuyerComponent,
-    OwnerComponent,
-    AboutComponent,
-    DetailComponent
+    // AppComponent,
+    // BoutiqueComponent,
+    // BuyerComponent,
+    // OwnerComponent,
+    // AboutComponent,
+    // DetailComponent
   ],
   imports: [
     BrowserModule,
