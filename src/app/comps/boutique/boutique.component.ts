@@ -11,10 +11,10 @@ import {MatInputModule} from '@angular/material/input';
   templateUrl: './boutique.component.html',
   styleUrls: ['./boutique.component.scss'],
   imports: [
-    MatTableModule,
-    RouterLink,
     CurrencyPipe,
+    MatTableModule,
     MatInputModule,
+    RouterLink,
     RouterOutlet
   ],
   standalone: true

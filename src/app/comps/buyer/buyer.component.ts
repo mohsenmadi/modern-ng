@@ -10,10 +10,10 @@ import {MatIconModule} from '@angular/material/icon';
   templateUrl: './buyer.component.html',
   styleUrls: ['./buyer.component.scss'],
   imports: [
-    MatTableModule,
-    CurrencyPipe,
-    MatButtonModule,
     AsyncPipe,
+    CurrencyPipe,
+    MatTableModule,
+    MatButtonModule,
     MatIconModule,
     NgIf
   ],
