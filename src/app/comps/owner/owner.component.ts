@@ -1,9 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import { ShopService } from "../../store/shop.service";
-import {ActivatedRoute} from '@angular/router';
 import {AsyncPipe, CurrencyPipe, NgIf} from '@angular/common';
 import {BoutiqueComponent} from '../boutique/boutique.component';
 import {BuyerComponent} from '../buyer/buyer.component';
+import {getRouteParam} from '../../utils/utils';
 
 @Component({
   selector: 'app-owner',
@@ -20,12 +20,6 @@ import {BuyerComponent} from '../buyer/buyer.component';
   providers: [ShopService]
 })
 export class OwnerComponent {
-  earnings$ = this.store.earnings$;
-
-  constructor(private store: ShopService, private activeRoute: ActivatedRoute) {
-  }
-
-  getRouteParam = (key: string) => this.activeRoute.snapshot.params[key];
-
-  newItems = this.getRouteParam('newItems')
+  earnings$ = inject(ShopService).earnings$;
+  newItems = getRouteParam('newItems')
 }

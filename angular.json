@@ -19,7 +19,7 @@
           "options": {
             "outputPath": "dist/modern-ng",
             "index": "src/index.html",
-            "main": "src/main.ts",
+            "main": "src/app/app.component.ts",
             "polyfills": [
               "zone.js"
             ],

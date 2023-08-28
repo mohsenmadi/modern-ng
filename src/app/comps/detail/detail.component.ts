@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ShopService} from '../../store/shop.service';
 import {AsyncPipe, JsonPipe} from '@angular/common';
+import {getRouteParam} from '../../utils/utils';
 
 @Component({
   selector: 'app-detail',
@@ -13,19 +14,18 @@ import {AsyncPipe, JsonPipe} from '@angular/common';
   ],
   standalone: true
 })
-export class DetailComponent implements OnInit {
+export class DetailComponent {
 
-  productSelected$ = this.store.productSelected$;
+  activeRoute = inject(ActivatedRoute);
+  store = inject(ShopService);
 
-  constructor(private activeRoute: ActivatedRoute, private store: ShopService) {
-  }
-
-  ngOnInit() {
+  constructor() {
     this.activeRoute.paramMap.subscribe(params => {
-        this.store.productSelectedUpdate(Number(this.getRouteParam('id')));
+        this.store
+          .productSelectedUpdate(Number(getRouteParam('id', this.activeRoute)));
       }
     );
   }
 
-  getRouteParam = (key: string) => this.activeRoute.snapshot.params[key];
+  productSelected$ = this.store.productSelected$;
 }
