@@ -13,8 +13,8 @@ export const routes: Routes = [
     children: [
       {
         path: 'detail/:id',
-        // component: DetailComponent,
-        loadComponent: () => import('./comps/detail/detail.component').then(m => m.DetailComponent)
+        component: DetailComponent,
+        // loadComponent: () => import('./comps/detail/detail.component').then(m => m.DetailComponent)
       }
     ]
   },
